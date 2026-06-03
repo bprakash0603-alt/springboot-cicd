@@ -2,15 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+
+        stage('Checkout') {
             steps {
-                echo 'Jenkins Pipeline Started Successfully'
+                git 'https://github.com/bprakash0603-alt/springboot-cicd.git'
             }
         }
 
         stage('Build') {
             steps {
-                echo 'Build Completed Successfully'
+                sh 'mvn clean package'
             }
         }
     }
